@@ -6,6 +6,10 @@
  * <slider :slider-value.sync="menuItem.prepare_time" :slider-min="0" :slider-max="20" :slider-step="1"></slider>
  * Created by codeninja on 05.05.16.
  */
+
+/* For VUE 2.x*/
+/* Updated by x404 on 11.03.18*/
+
 Vue.component('slider', {
     props: ['sliderValue', 'sliderMin', 'sliderMax', 'sliderStep'],
     template: '<div :id="sliderId"></div>',
@@ -14,7 +18,7 @@ Vue.component('slider', {
             sliderId: this.uuid4(),
         }
     },
-    ready: function () {
+    mounted: function () {
         var slider = document.getElementById(this.sliderId)
         noUiSlider.create(slider, {
             start: this.sliderValue,
